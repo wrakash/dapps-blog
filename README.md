@@ -77,7 +77,7 @@ _Preview 8: Admin Search Page for query_
    AWS_ACCESS_KEY_ID=################################
    AWS_ACCESS_KEY_SECRET=################################
    S3_BUCKET_NAME=################################
-   
+
    Save the changes to the .env file.
 
 ## MongoDB Atlas Configuration
@@ -125,6 +125,7 @@ _Preview 8: Admin Search Page for query_
 - POST /auth/signup: Create a new blog (Admin only).
 - POST /auth/signin: Create a new blog (Admin only).
 - POST /auth/signout: Create a new blog (Admin only).
+
   For detailed request and response examples, refer to API Documentation which added to this project.
 
 ## Frontend Deployment

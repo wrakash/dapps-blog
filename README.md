@@ -175,7 +175,7 @@ Set the AWS_ACCESS_KEY_ID and AWS_ACCESS_KEY_SECRET environment variables in you
 
 - Start frontend and backend using PM2:
   pm2 start dist/main.js --name "backend"
-  pm2 start pm2 start npm --name "dapps-frontend" -- start
+  pm2 start npm --name "dapps-frontend" -- start
 
 - Access the running processes with:
   pm2 list

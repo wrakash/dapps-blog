@@ -13,8 +13,6 @@ export default NextAuth({
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
 
-        console.log("credentials", credentials);
-
         let config = {
           method: "post",
           maxBodyLength: Infinity,
@@ -54,6 +52,6 @@ export default NextAuth({
 
   pages: {
     signIn: "/auth/signIn",
-    signOut:'/'
+    signOut: "/",
   },
 });

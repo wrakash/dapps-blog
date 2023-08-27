@@ -43,7 +43,7 @@ export function FaqView({ faqs }: { faqs: FAQ[] }) {
                   >
                     <path
                       strokeLinecap="round"
-                      stroke-linejoin="round"
+                      strokeLinejoin="round"
                       d="M19.5 8.25l-7.5 7.5-7.5-7.5"
                     />
                   </svg>

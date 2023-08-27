@@ -65,6 +65,7 @@ _Preview 8: Admin Search Page for query_
    NEXTAUTH_SECRET=################################
    NEXTAUTH_URL=################################
    NEXT_PUBLIC_API_ENDPOINT=################################
+
    Save the changes to the .env.local file.
 
 5. Set up environment variables for backend.
@@ -76,6 +77,7 @@ _Preview 8: Admin Search Page for query_
    AWS_ACCESS_KEY_ID=################################
    AWS_ACCESS_KEY_SECRET=################################
    S3_BUCKET_NAME=################################
+   
    Save the changes to the .env file.
 
 ## MongoDB Atlas Configuration

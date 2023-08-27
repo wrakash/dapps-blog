@@ -9,7 +9,7 @@ const nextConfig = {
     NEXT_PUBLIC_API_ENDPOINT: process.env.NEXT_PUBLIC_API_ENDPOINT,
   },
   images: {
-    domains: ["dapps-blogs.s3.amazonaws.com"],
+    domains: ["blogmaker.s3.amazonaws.com"],
   },
 };
 

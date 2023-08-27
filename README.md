@@ -8,8 +8,8 @@ A robust blog project with role-based authentication, JWT authorization, CRUD op
 - backend url : http://54.89.223.124:3008/
 - github url : https://github.com/wrakash/dapps-blog.git
 - credentials for admin : {
-    email:akash@gmail.com
-    password:"Akash@1997 }
+  email:akash@gmail.com
+  password:"Akash@1997 }
 
 ## Project Previews
 
@@ -129,14 +129,17 @@ _Preview 8: Admin Search Page for query_
   For detailed request and response examples, refer to API Documentation which added to this project.
 
 ## Frontend Deployment
-
+- Deploy the backend to an AWS EC2 instance.
 - Build the frontend for production:
-  cd dapp-frontend
   npm run build
+  pm2 start pm2 start npm --name "dapps-frontend" -- start
+  - Access the deployed frontend at http://your-backend-ip:####.
 
 ## Backend Deployment
-
 - Deploy the backend to an AWS EC2 instance.
+- Build the backend for production:
+  npm run build
+  pm2 start dist/main.js --name "backend"
 - Access the deployed backend at http://your-backend-ip:####.
 
 ## Notes
@@ -154,6 +157,16 @@ _Preview 8: Admin Search Page for query_
 3. AWS Configuration
 
 - Configure AWS credentials in your environment or AWS CLI for deployment.
+
+- Create an S3 Bucket:
+
+* Log in to your AWS account.
+* Go to the S3 service.
+* Create a new bucket with a unique name.
+* Configure the bucket permissions to allow public read access for the images by setting the rules and enable cors policy
+* Generate Access Key & Access Secret by using IAM credentials.
+
+Set the AWS_ACCESS_KEY_ID and AWS_ACCESS_KEY_SECRET environment variables in your backend .env file.
 
 4. Start Frontend & Backend with PM2
 

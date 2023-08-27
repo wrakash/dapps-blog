@@ -22,7 +22,7 @@ _Preview 2: Individual Blog Page_
 ![Preview 3](/previews/preview3.png)
 _Preview 3: Admin Login Page for CRUD Operations_
 
-![Preview 4](/images/preview4.png)
+![Preview 4](/previews/preview4.png)
 _Preview 4: Admin List Page for all blog with delete option_
 
 ![Preview 5](/previews/preview5.png)

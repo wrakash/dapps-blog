@@ -1,0 +1,68 @@
+pipeline {
+    agent any
+    
+
+    stages {
+        stage("Code") {
+            steps {
+                echo "Cloning the code"
+                git credentialsId: 'github-PAT', url: 'https://github.com/wrakash/dapps-backend.git', branch: 'main'
+            }
+        }
+        
+        
+        stage("creating the env file"){
+            steps{
+                 script {
+                    def envContent = """
+                        # Service Port
+                        PORT=3008
+
+                        # Database configuration
+                        MONGODB_URI=mongodb+srv://wrakash:0k6YIemrGwaoxAdk@cluster0.cr4c7ji.mongodb.net/dapps?retryWrites=true&w=majority
+
+                        # Jwt configuration
+                        JWT_SECRET=4YdOfiPtyv1aYAjSdr7MidPOnmZHtT4AdLAvQldpHvD2SROwEXSE1JQHhUn0XEy0bOCCHnI8zIxWKocI7ASb7Kh3uQ0spn9FsZ
+                        JWT_EXPIRATION=3600
+
+                        # AWS configuration
+                        AWS_S3_REGION=us-east-1
+                        AWS_ACCESS_KEY_ID=AKIAVYEIJHKCV6AWB7X2
+                        AWS_ACCESS_KEY_SECRET=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
+                        S3_BUCKET_NAME=dapps-blogs
+
+                    """
+
+                    writeFile file: ".env", text: envContent.trim()
+                    echo "env file created"
+                }
+                echo "env file created"
+            }
+        }
+        
+        stage("Build") {
+            steps {
+               echo "Building the image"
+               sh "docker build -t dapp-backend ."
+            }
+        }
+    
+        stage("Push to Docker image") {
+          steps {
+              echo "Pushing the image to Docker Hub"
+              withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPass', usernameVariable: 'dockerHubUser')]) {
+                 sh "docker tag dapp-backend ${env.dockerHubUser}/dapp-backend:latest"
+                 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+                 sh "docker push ${env.dockerHubUser}/dapp-backend:latest"
+              }
+          }
+        }
+        
+        stage("Deploy"){
+            steps {
+                echo "Deploying"
+                sh "docker compose down && docker compose up -d"
+            }
+        }
+    }
+}

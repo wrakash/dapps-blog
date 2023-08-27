@@ -4,8 +4,8 @@ A robust blog project with role-based authentication, JWT authorization, CRUD op
 
 # deployed url:
 
-- frontend url : http://54.89.223.124:3000/
-- backend url : http://54.89.223.124:3008/
+- frontend url : http://65.2.5.79:3000/
+- backend url : http://65.2.5.79:3008/
 - github url : https://github.com/wrakash/dapps-blog.git
 - credentials for admin : {
   email:akash@gmail.com

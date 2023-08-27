@@ -175,7 +175,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU3MzQ4OTVhYTBhZGZmMzkxYTQ4NDQiLCJpYXQiOjE2OTMwNTAyMTgsImV4cCI6MTY5MzA1MzgxOH0.Xii0a0REvntB8p9pZ1FqUCUuRzUWhS2ldTSoXYyzBQ4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU3MzQ4OTVhYTBhZGZmMzkxYTQ4NDQiLCJpYXQiOjE2OTMxNjc2NDgsImV4cCI6MTY5Mzc3MjQ0OH0.u6r0k3Ks9akrPTKbON3Fng9CUo6gqeVlwvPq4zrFY2Y",
 									"type": "string"
 								}
 							]
@@ -184,7 +184,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"image\": \"https://dapps-blogs.s3.amazonaws.com/img-SL4CSBufy3CYPiAqwJrn0Dn9.png\",\r\n    \"author\":{\r\n        \"imageUrl\":\"https://dapps-blogs.s3.amazonaws.com/akash.jpg\"\r\n    }\r\n}",
+							"raw": "{\r\n    \"image\": \"https://blogmaker.s3.amazonaws.com/istockphoto-966248982-612x612.jpg\",\r\n    \"author\":{\r\n        \"imageUrl\":\"https://blogmaker.s3.amazonaws.com/akash.jpg\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -192,13 +192,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{dapps_blogs}}/blogs/64e9e593832522aa194fb1d8",
+							"raw": "{{dapps_blogs}}/blogs/64eb5fc01d8ea72a366c4a60",
 							"host": [
 								"{{dapps_blogs}}"
 							],
 							"path": [
 								"blogs",
-								"64e9e593832522aa194fb1d8"
+								"64eb5fc01d8ea72a366c4a60"
 							]
 						}
 					},
@@ -307,7 +307,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU1MjI4MWNmMzA0MTIxNzBhNThkZWQiLCJpYXQiOjE2OTI3NTk3NzMsImV4cCI6MTY5Mjc2MzM3M30.0WGBdi-KPwKObQpG4zjIlVM6b9GhjW-Zt21i8y6Nmwk",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU3MzQ4OTVhYTBhZGZmMzkxYTQ4NDQiLCJpYXQiOjE2OTMxNzIxNzYsImV4cCI6MTY5Mzc3Njk3Nn0.2QmGiet37Cp2o433JXEUGFu1ytz30RBU450OWeSeFLw",
 									"type": "string"
 								}
 							]
@@ -320,14 +320,14 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/Users/Admin/Downloads/cartoon-character-with-yellow-jacket-sunglasses.jpg"
+									"src": "/C:/Users/Admin/Downloads/human_and_ai_hand_writing_on_a_keyboard_2.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{dapps_aws}}/aws/upload",
+							"raw": "{{dapps_blogs}}/aws/upload",
 							"host": [
-								"{{dapps_aws}}"
+								"{{dapps_blogs}}"
 							],
 							"path": [
 								"aws",

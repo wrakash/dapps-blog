@@ -51,7 +51,7 @@ _Preview 8: Admin Search Page for query_
 ## Installation
 
 1. Navigate to the project directory:
-   cd project-directory
+   cd dapps-blog
 
 2. Install backend dependencies:
    cd dapp-backend

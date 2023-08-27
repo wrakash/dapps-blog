@@ -20,7 +20,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU3MzQ4OTVhYTBhZGZmMzkxYTQ4NDQiLCJpYXQiOjE2OTMwNDQxNjQsImV4cCI6MTY5MzA0Nzc2NH0.j3uYiK0LXVYHQnMguTmA7JB_niucnEToQQl57tckpaA",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU3MzQ4OTVhYTBhZGZmMzkxYTQ4NDQiLCJpYXQiOjE2OTMxNjA3ODcsImV4cCI6MTY5Mzc2NTU4N30.Zc2QJlwevzyYpJ09O-w3gfrXcVwc7ilPJkdaXLwjQyI",
 											"type": "string"
 										}
 									]
@@ -235,9 +235,6 @@
 				{
 					"name": "gets",
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -255,19 +252,16 @@
 				{
 					"name": "get",
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{dapps_blogs}}/blogs/64e9e593832522aa194fb1d8",
+							"raw": "{{dapps_blogs}}/blogs/64eb5d331d8ea72a366c4a33",
 							"host": [
 								"{{dapps_blogs}}"
 							],
 							"path": [
 								"blogs",
-								"64e9e593832522aa194fb1d8"
+								"64eb5d331d8ea72a366c4a33"
 							]
 						}
 					},
@@ -276,16 +270,6 @@
 				{
 					"name": "search",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU3MzQ4OTVhYTBhZGZmMzkxYTQ4NDQiLCJpYXQiOjE2OTMxNDE4ODUsImV4cCI6MTY5Mzc0NjY4NX0.M35oMpTlSBUymJJvzjruiOIn94V3nJrnHtYDL8o4Mig",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
 						"header": [],
 						"url": {

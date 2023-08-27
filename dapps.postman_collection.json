@@ -1,0 +1,359 @@
+{
+	"info": {
+		"_postman_id": "2fe84cbe-e51e-4efc-8496-70b04b885cec",
+		"name": "dapps",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13748202"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "get",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU3MzQ4OTVhYTBhZGZmMzkxYTQ4NDQiLCJpYXQiOjE2OTMwNDQxNjQsImV4cCI6MTY5MzA0Nzc2NH0.j3uYiK0LXVYHQnMguTmA7JB_niucnEToQQl57tckpaA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{dapps_blogs}}/users",
+									"host": [
+										"{{dapps_blogs}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "signin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"email\":\"akash@gmail.com\",\r\n     \"password\":\"Akash@1997\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{dapps_blogs}}/auth/signin",
+							"host": [
+								"{{dapps_blogs}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU3MzQ4OTVhYTBhZGZmMzkxYTQ4NDQiLCJpYXQiOjE2OTMwNDQxNjQsImV4cCI6MTY5MzA0Nzc2NH0.j3uYiK0LXVYHQnMguTmA7JB_niucnEToQQl57tckpaA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{dapps_blogs}}/auth/signout",
+							"host": [
+								"{{dapps_blogs}}"
+							],
+							"path": [
+								"auth",
+								"signout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"email\":\"akash@gmail.com\",\r\n     \"password\":\"Akash@1997\",\r\n     \"roles\":[\"Admin\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{dapps_blogs}}/auth/signup",
+							"host": [
+								"{{dapps_blogs}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "blogs",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU3MzQ4OTVhYTBhZGZmMzkxYTQ4NDQiLCJpYXQiOjE2OTMwNTg4MDcsImV4cCI6MTY5MzA2MjQwN30.J58kjuOAhtOLJ0ImATPogNpd3s-OL9TyjfnhwKiundE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\":\"how-to-make-resume-8\",\r\n    \"title\":\"How to Make Resume8 ?\",\r\n    \"description\":\"In the competitive landscape of job hunting, a well-crafted cover letter can be the key that unlocks the door to your desired career path. It's a personalized introduction that complements your CV, allowing you to showcase your enthusiasm, skills, and suitability for the position. In this blog post, we'll guide you through the process of creating a compelling cover letter that makes a lasting impression.\",\r\n    \"keywords\":[\"cv\", \"resume\"],\r\n    \"image\":\"https://dapps-blogs.s3.amazonaws.com/img-SL4CSBufy3CYPiAqwJrn0Dn9.png\",\r\n    \"author\":{\r\n        \"name\":\"Akash kr\",\r\n        \"designation\":\"Fullstack Developer\",\r\n        \"description\":\"I am a Full-stack web developer with industry experience building websites and web applications. I specialize in JavaScript and have professional experience working with React Js, Laravel. I also have experience working with React Native, Tailwind, Express Js, MongoDB etc. Check my all Project to know more about me.\",\r\n        \"imageUrl\":\"https://dapps-blogs.s3.amazonaws.com/akash.jpg\",\r\n        \"linkedUrl\":\"https://www.linkedin.com/in/wrakash/\",\r\n        \"twitterUrl\":\"https://twitter.com/akashkumar\"\r\n    },\r\n  \r\n   \"faq\":[\r\n        {\r\n          \"question\": \"1. How many pages should a CV be?\",\r\n          \"answer\": \"A CV should ideally be 2-3 pages.\"\r\n        },\r\n        {\r\n          \"question\": \"2. What font size should I use on my CV?\",\r\n          \"answer\": \"Your CV should be easy to read, so use a font size that is between 10 and 12 points.\"\r\n        },\r\n        {\r\n          \"question\": \"3. How can I make my CV stand out?\",\r\n          \"answer\": \"There are several ways you can make your CV stand out, including: using strong verbs to describe your accomplishments, customizing your CV for each job you apply for, and including relevant keywords throughout your CV.\"\r\n        },\r\n        {\r\n          \"question\": \"4. What information should I include in my CV?\",\r\n          \"answer\": \"Be sure to include your contact information, education, work experience, skills, and references on your CV.\"\r\n        },\r\n        {\r\n          \"question\": \"5. Should I use a template to create my CV?\",\r\n          \"answer\": \"While there are many templates available online which can help you create a professional looking cv, it is not necessary to use one. You can also simply create a document in Microsoft Word or another word processing program and format it yourself.\"\r\n        }\r\n      ],\r\n   \"paragraphs\": [\r\n       {\r\n           \"title\":\"Understand the Purpose of a Cover Letter\",\r\n           \"description\":\"A cover letter is your opportunity to introduce yourself beyond your resume. It should provide insights into your motivations, skills, and experience that make you a valuable asset to the company. Tailor your cover letter for each application to demonstrate your genuine interest in the position and the company.\"\r\n       },\r\n       {\r\n           \"title\":\"Researching the Company\",\r\n           \"description\":\"Begin by conducting thorough research on the company. Understand their mission, values, and recent developments. Identify the specific qualities they seek in an employee and the challenges they're facing. This information will help you tailor your cover letter to show that you're a perfect fit for their team.\"\r\n       },\r\n       {\r\n           \"title\":\"Header and Contact Information\",\r\n           \"description\":\"At the top of your cover letter, include your name, phone number, email address, and the date. If you're sending a digital copy, you can skip the postal address to maintain privacy.\"\r\n       }\r\n   ],\r\n   \"rate\":{\r\n       \"totalRate\":5,\r\n       \"avgRate\":3\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{dapps_blogs}}/blogs",
+							"host": [
+								"{{dapps_blogs}}"
+							],
+							"path": [
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU3MzQ4OTVhYTBhZGZmMzkxYTQ4NDQiLCJpYXQiOjE2OTMwNTAyMTgsImV4cCI6MTY5MzA1MzgxOH0.Xii0a0REvntB8p9pZ1FqUCUuRzUWhS2ldTSoXYyzBQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\": \"https://dapps-blogs.s3.amazonaws.com/img-SL4CSBufy3CYPiAqwJrn0Dn9.png\",\r\n    \"author\":{\r\n        \"imageUrl\":\"https://dapps-blogs.s3.amazonaws.com/akash.jpg\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{dapps_blogs}}/blogs/64e9e593832522aa194fb1d8",
+							"host": [
+								"{{dapps_blogs}}"
+							],
+							"path": [
+								"blogs",
+								"64e9e593832522aa194fb1d8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU3MzQ4OTVhYTBhZGZmMzkxYTQ4NDQiLCJpYXQiOjE2OTMwNTg4MDcsImV4cCI6MTY5MzA2MjQwN30.J58kjuOAhtOLJ0ImATPogNpd3s-OL9TyjfnhwKiundE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{dapps_blogs}}/blogs/64e9e593832522aa194fb1d8",
+							"host": [
+								"{{dapps_blogs}}"
+							],
+							"path": [
+								"blogs",
+								"64e9e593832522aa194fb1d8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "gets",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{dapps_blogs}}/blogs",
+							"host": [
+								"{{dapps_blogs}}"
+							],
+							"path": [
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{dapps_blogs}}/blogs/64e9e593832522aa194fb1d8",
+							"host": [
+								"{{dapps_blogs}}"
+							],
+							"path": [
+								"blogs",
+								"64e9e593832522aa194fb1d8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU3MzQ4OTVhYTBhZGZmMzkxYTQ4NDQiLCJpYXQiOjE2OTMxNDE4ODUsImV4cCI6MTY5Mzc0NjY4NX0.M35oMpTlSBUymJJvzjruiOIn94V3nJrnHtYDL8o4Mig",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{dapps_blogs}}/blogs?keywords=ai&keywords=ml",
+							"host": [
+								"{{dapps_blogs}}"
+							],
+							"path": [
+								"blogs"
+							],
+							"query": [
+								{
+									"key": "keywords",
+									"value": "ai"
+								},
+								{
+									"key": "keywords",
+									"value": "ml"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "aws",
+			"item": [
+				{
+					"name": "upload",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU1MjI4MWNmMzA0MTIxNzBhNThkZWQiLCJpYXQiOjE2OTI3NTk3NzMsImV4cCI6MTY5Mjc2MzM3M30.0WGBdi-KPwKObQpG4zjIlVM6b9GhjW-Zt21i8y6Nmwk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Admin/Downloads/cartoon-character-with-yellow-jacket-sunglasses.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dapps_aws}}/aws/upload",
+							"host": [
+								"{{dapps_aws}}"
+							],
+							"path": [
+								"aws",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

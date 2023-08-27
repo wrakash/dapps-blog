@@ -161,8 +161,8 @@ _Preview 8: Admin Search Page for query_
   npm install -g pm2
 
 - Start frontend and backend using PM2:
-  pm2 start dapp-backend/dist/main.js --name "backend"
-  pm2 start dapp-frontend/.next/server/index.js --name "frontend"
+  pm2 start dist/main.js --name "backend"
+  pm2 start pm2 start npm --name "dapps-frontend" -- start
 
 - Access the running processes with:
   pm2 list

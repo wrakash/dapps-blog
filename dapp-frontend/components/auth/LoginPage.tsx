@@ -80,7 +80,7 @@ export const LoginPageComponent = () => {
               value={credentials.email}
               type="email"
               onChange={(e) => onInputChangeHandler(e.target.value, "email")}
-              class={`w-full h-10 focus:outline-none py-1 px-1 rounded border ${
+              className={`w-full h-10 focus:outline-none py-1 px-1 rounded border ${
                 errors.email ? "border-red-500" : "border-gray-300"
               }`}
             >
@@ -98,7 +98,7 @@ export const LoginPageComponent = () => {
               value={credentials.password}
               type="password"
               onChange={(e) => onInputChangeHandler(e.target.value, "password")}
-              class={`w-full h-10 focus:outline-none py-1 px-1 rounded border ${
+              className={`w-full h-10 focus:outline-none py-1 px-1 rounded border ${
                 errors.password ? "border-red-500" : "border-gray-300"
               }`}
             >

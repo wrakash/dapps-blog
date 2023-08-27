@@ -174,7 +174,7 @@ const CreateComponent = () => {
           placeholder="enter the title"
           value={common.title}
           onChange={(e) => handleInputChane(e.target.value, "title")}
-          class={`w-full h-10 focus:outline-none py-1 px-1  rounded border ${
+          className={`w-full h-10 focus:outline-none py-1 px-1  rounded border ${
             error.title ? "border-red-500" : "border-gray-300"
           }  `}
         >
@@ -189,7 +189,7 @@ const CreateComponent = () => {
           placeholder="enter the description"
           value={common.description}
           onChange={(e) => handleInputChane(e.target.value, "description")}
-          class={`h-40 border ${
+          className={`h-40 border ${
             error.title ? "border-red-500" : "border-gray-300"
           } w-full  focus:outline-none py-1 px-1 rounded-md`}
         >
@@ -209,7 +209,7 @@ const CreateComponent = () => {
           setUrl={setBlogImage}
           title="choose blog image"
           isRound={false}
-          class={`${error.title ? "border-red-500" : "border-gray-300"}`}
+          className={`${error.title ? "border-red-500" : "border-gray-300"}`}
         />
         {error.blogImage && <p className="text-red-500">{error.blogImage}</p>}
 
@@ -217,7 +217,7 @@ const CreateComponent = () => {
           initialTags={selectedTags}
           onTagsChange={handleTagsChange}
           title="Select Keywords"
-          class={`${error.title ? "border-red-500" : "border-gray-300"}`}
+          className={`${error.title ? "border-red-500" : "border-gray-300"}`}
         />
 
         <AuthorField author={author} setAuthor={setAuthor} title="Autor" />

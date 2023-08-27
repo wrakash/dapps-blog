@@ -18,10 +18,10 @@ function DataGrid({ columns, data }: any) {
             <tr {...headerGroup.getHeaderGroupProps()} key={index}>
               {headerGroup.headers.map((column: any, index2: number) => (
                 <th
-                  key={index2}
                   scope="col"
                   className="group px-4 sm:px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider"
                   {...column.getHeaderProps()}
+                  key={index2}
                 >
                   <div className="flex items-center justify-between">
                     {column.render("Header")}

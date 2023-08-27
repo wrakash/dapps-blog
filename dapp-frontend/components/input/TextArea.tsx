@@ -6,7 +6,7 @@ interface TextFieldProps {
   value: string;
   children?: any;
   name?: string;
-  class?: string;
+  className?: string;
   onChange: ChangeEventHandler<HTMLTextAreaElement>; // Use HTMLTextAreaElement here
 }
 
@@ -16,7 +16,7 @@ export function TextArea({ children, ...rest }: TextFieldProps) {
     <div className={"w-full space-y-1"}>
       {children}
       <textarea
-        className={`${rest.class}`}
+        className={`${rest.className}`}
         {...rest}
       />
     </div>

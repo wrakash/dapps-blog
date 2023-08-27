@@ -58,7 +58,7 @@ export const AuthorField: React.FC<AuthorInputProps> = (props) => {
               name="name"
               value={name}
               onChange={handleInputChange}
-              class="w-full h-10 focus:outline-none py-1 px-1  rounded border border-gray-300"
+              className="w-full h-10 focus:outline-none py-1 px-1  rounded border border-gray-300"
             >
               <label
                 htmlFor="Name"
@@ -75,7 +75,7 @@ export const AuthorField: React.FC<AuthorInputProps> = (props) => {
               placeholder="enter designation"
               value={designation}
               onChange={handleInputChange}
-              class="w-full h-10 focus:outline-none py-1 px-1  rounded border border-gray-300"
+              className="w-full h-10 focus:outline-none py-1 px-1  rounded border border-gray-300"
             >
               <label
                 htmlFor="Designation"
@@ -92,7 +92,7 @@ export const AuthorField: React.FC<AuthorInputProps> = (props) => {
               placeholder="enter description"
               value={description}
               onChange={handleInputChange}
-              class="h-40  border border-gray-300 w-full  focus:outline-none py-1 px-1 rounded-md"
+              className="h-40  border border-gray-300 w-full  focus:outline-none py-1 px-1 rounded-md"
             >
               <label
                 htmlFor="Description"
@@ -109,7 +109,7 @@ export const AuthorField: React.FC<AuthorInputProps> = (props) => {
               placeholder="enter Twitter URL"
               value={twitterUrl}
               onChange={handleInputChange}
-              class="w-full h-10 focus:outline-none py-1 px-1  rounded border border-gray-300"
+              className="w-full h-10 focus:outline-none py-1 px-1  rounded border border-gray-300"
             >
               <label
                 htmlFor=" Twitter URL"

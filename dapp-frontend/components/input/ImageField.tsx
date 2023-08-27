@@ -11,7 +11,7 @@ interface ImageFieldProps {
   isRound: boolean;
   url: string;
   setUrl: (url: string) => void;
-  class?: string;
+  className?: string;
 }
 
 export const ImageField: React.FC<ImageFieldProps> = ({
@@ -86,7 +86,7 @@ export const ImageField: React.FC<ImageFieldProps> = ({
           <div
             {...getRootProps()}
             className={`border-2 border-dashed ${
-              rest.class
+              rest.className
             } rounded-lg cursor-pointer relative ${
               isDropzoneActive ? "cursor-pointer" : "cursor-not-allowed"
             }`}

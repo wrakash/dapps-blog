@@ -4,7 +4,7 @@ interface TagInputProps {
   initialTags: string[];
   title: string;
   onTagsChange: (tags: string[]) => void;
-  class? : string;
+  className? : string;
 }
 
 const TagInput: React.FC<TagInputProps> = ({
@@ -49,7 +49,7 @@ const TagInput: React.FC<TagInputProps> = ({
       <label htmlFor={title} className="font-bold">
         {title}
       </label>
-      <div className={`flex flex-wrap gap-2 p-2  rounded-md border border-gray-300 ${rest.class}`}>
+      <div className={`flex flex-wrap gap-2 p-2  rounded-md border border-gray-300 ${rest.className}`}>
         {tags.map((tag) => (
           <div
             key={tag}

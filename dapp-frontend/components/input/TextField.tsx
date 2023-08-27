@@ -7,7 +7,7 @@ interface TextFieldProps {
   children?: any;
   name?: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
-  class?: string;
+  className?: string;
 }
 
 export function TextField({ children, ...rest }: TextFieldProps) {
@@ -15,7 +15,7 @@ export function TextField({ children, ...rest }: TextFieldProps) {
     <div className="w-full space-y-1">
       {children}
       <input
-        className={` ${rest.class}`}
+        className={` ${rest.className}`}
         {...rest}
       />
     </div>

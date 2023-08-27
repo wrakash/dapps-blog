@@ -52,7 +52,7 @@ export const ParagraphDynamicInput: React.FC<DynamicInputProps> = ({
             placeholder="Enter the title"
             value={x.title}
             onChange={(e) => handleInputChange(e, i)}
-            class="w-full h-10 focus:outline-none py-1 px-1  rounded border border-gray-300"
+            className="w-full h-10 focus:outline-none py-1 px-1  rounded border border-gray-300"
           >
             <label
               htmlFor="Title"
@@ -67,7 +67,7 @@ export const ParagraphDynamicInput: React.FC<DynamicInputProps> = ({
             placeholder="Enter the description"
             value={x.description}
             onChange={(e: any) => handleInputChange(e, i)}
-            class="h-10 border border-gray-300 w-full focus:outline-none py-1 px-1 rounded-md"
+            className="h-10 border border-gray-300 w-full focus:outline-none py-1 px-1 rounded-md"
           >
             <label
               htmlFor="Description"

@@ -3,7 +3,8 @@
  */
 export interface S3Response {
   status: string; // Status of the operation, e.g., 'success', 'error', etc.
-  data: {
+  message? : string; 
+  data?: {
     url: string; // URL associated with the S3 object, e.g., a downloadable link.
     name: string; // Name of the S3 object, e.g., the file name.
   };

@@ -1,105 +1,60 @@
-import * as AWS from 'aws-sdk';
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { S3Response } from './interfaces/s3response.interface';
+
+import { Upload } from '@aws-sdk/lib-storage';
+import { S3Client } from '@aws-sdk/client-s3';
 
 @Injectable()
 export class AwsService {
   constructor(private readonly configService: ConfigService) {}
 
   // Retrieve configuration values from the environment using the ConfigService
-  AWS_S3_BUCKET = this.configService.getOrThrow('S3_BUCKET_NAME');
-  s3 = new AWS.S3({
-    accessKeyId: this.configService.getOrThrow('AWS_ACCESS_KEY_ID'),
-    secretAccessKey: this.configService.getOrThrow('AWS_ACCESS_KEY_SECRET'),
+  private bucketName = this.configService.getOrThrow('S3_BUCKET_NAME');
+
+  private s3 = new S3Client({
+    region: this.configService.getOrThrow('AWS_S3_REGION'),
+    credentials: {
+      accessKeyId: this.configService.getOrThrow('AWS_ACCESS_KEY_ID'),
+      secretAccessKey: this.configService.getOrThrow('AWS_ACCESS_KEY_SECRET'),
+    },
+    useAccelerateEndpoint: true,
   });
 
   // Upload a file to AWS S3
   async uploadFile(file): Promise<S3Response> {
     const { originalname } = file;
-    return await this.uploadLargeFile(
-      file.buffer,
-      this.AWS_S3_BUCKET,
-      originalname,
-      file.mimetype,
-    );
-  }
 
-  // Upload small files to AWS S3 using a single PUT request
-  async uploadSmallFile(file, bucket, name, mimetype) {
     const params = {
-      Bucket: bucket,
-      Key: String(name),
-      Body: file,
-      ACL: 'public-read',
-      ContentType: mimetype,
-      ContentDisposition: 'inline',
-      CreateBucketConfiguration: {
-        LocationConstraint: this.configService.getOrThrow('AWS_S3_REGION'),
-      },
+      Bucket: this.bucketName,
+      Key: `${Date.now().toString()}_${file.originalname}`,
+      Body: file.buffer,
     };
 
     try {
-      let s3Response = await this.s3.upload(params).promise();
-      return {
-        status: 'success',
-        data: {
-          url: s3Response.Location,
-          name: s3Response.Key,
-        },
-      };
-    } catch (error) {
-      throw new InternalServerErrorException(error.message);
-    }
-  }
+      // upload file to s3 parallelly in chunks
+      // it supports min 5MB of file size
+      const uploadParallel = new Upload({
+        client: this.s3,
+        queueSize: 4, // optional concurrency configuration
+        partSize: 5542880, // optional size of each part
+        leavePartsOnError: false, // optional manually handle dropped parts
+        params,
+      });
 
-  // Upload large files to AWS S3 using multipart upload
-  async uploadLargeFile(file, bucket, name, mimetype) {
-    const params = {
-      Bucket: bucket,
-      Key: String(name),
-    };
-  
-    try {
-      const uploadId = await this.s3.createMultipartUpload(params).promise();
-      const partSize = 5 * 1024 * 1024; // 5MB chunks
-      const numParts = Math.ceil(file.length / partSize);
-      const uploadPromises = [];
-      
-      // Upload file parts in parallel
-      for (let i = 0; i < numParts; i++) {
-        const start = i * partSize;
-        const end = Math.min(start + partSize, file.length);
-        const part = file.slice(start, end);
-        const uploadParams = {
-          ...params,
-          PartNumber: i + 1,
-          UploadId: uploadId.UploadId,
-          Body: part,
-        };
-        const uploadPromise = this.s3.uploadPart(uploadParams).promise();
-        uploadPromises.push(uploadPromise);
-      }
-  
-      const uploadedParts = await Promise.all(uploadPromises);
-      const completedParams = {
-        ...params,
-        UploadId: uploadId.UploadId,
-        MultipartUpload: { Parts: uploadedParts.map((part, index) => ({ ETag: part.ETag, PartNumber: index + 1 })) },
-      };
-  
-      // Complete multipart upload
-      await this.s3.completeMultipartUpload(completedParams).promise();
-  
-      return {
-        status: 'success',
-        data: {
-          url: `https://${bucket}.s3.amazonaws.com/${name}`,
-          name,
-        },
-      };
+      // checking progress of upload
+      uploadParallel.on('httpUploadProgress', (progress) => {
+        console.log(progress);
+      });
+
+      // after completion of upload
+      const data: any = await uploadParallel.done();
+      return { status: 'success', data: data.Location };
     } catch (error) {
-      throw new InternalServerErrorException(error.message);
+      return {
+        status: 'upload failed',
+        message: error.message,
+      };
     }
   }
 }

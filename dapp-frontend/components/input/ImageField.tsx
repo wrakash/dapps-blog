@@ -30,7 +30,7 @@ export const ImageField: React.FC<ImageFieldProps> = ({
   const onDrop = async (acceptedFiles: File[]) => {
     let token: any = session.data?.user?.accessToken;
     const selectedFile = acceptedFiles[0];
-    const { url: image } = await handleUpload(selectedFile, token);
+    const image = await handleUpload(selectedFile, token);
     setUrl(image);
     setPreview(URL.createObjectURL(selectedFile));
     setIsDropzoneActive(false);
